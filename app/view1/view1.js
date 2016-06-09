@@ -9,6 +9,8 @@ angular.module('myApp.view1', ['ngRoute'])
   });
 }])
 
-.controller('View1Ctrl', [function() {
-
+.controller('View1Ctrl', ['$scope','$rootScope', function($scope,$rootScope) {
+	console.log($scope)
+    console.log($scope.test = 1111111)
+    console.log('ctrl 1')
 }]);
