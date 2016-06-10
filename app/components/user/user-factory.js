@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp')
+angular.module('myApp.user.user-factory',[])
 
 // .factory('UserFactory', function(){
 // 	var _name = '';

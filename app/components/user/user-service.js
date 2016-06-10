@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp')
+angular.module('myApp.user.user-service',[])
 
 .service('UserService', function(){
 	var _name = '';
