@@ -1,7 +1,7 @@
 angular.
   module('myApp').
   component('uiList', {
-    templateUrl: 'components/ui_list/ui-list.components.html',
+    templateUrl: 'components/ui_list/ui-list.template.html',
     controllerAs: 'UIListCtrl',
     controller: UiListController
   });

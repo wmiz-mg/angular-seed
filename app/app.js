@@ -33,6 +33,15 @@ angular.module('myApp', ['ui.router'])
 		      }
 		    }
         })
+        .state("user", {
+        	url: '/user-list',
+        	views: {
+		      'content': {
+		        templateUrl: '/components/ui_list/userlist.html',
+		        controller: function($scope){}
+		      }
+		    }
+        })
   }
 ])
 // config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
