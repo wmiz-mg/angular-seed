@@ -9,7 +9,8 @@
 //   'myApp.version'
 // ]).
 angular.module('myApp', ['ui.router'])
-.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider,   $urlRouterProvider) {
+.config(['$locationProvider','$stateProvider', '$urlRouterProvider', function ($locationProvider ,$stateProvider,   $urlRouterProvider) {
+	$locationProvider.html5Mode({enable:true,requireBase:true}).hashPrefix('!');
 	$urlRouterProvider
     .otherwise('/');
 
@@ -23,8 +24,8 @@ angular.module('myApp', ['ui.router'])
 		      }
 		    }
         })
-        .state("home2", {
-        	url: '/home',
+        .state("dashboard", {
+        	url: '/dashboard',
         	views: {
 		      'content': {
 		        templateUrl: '/components/body2.html',
