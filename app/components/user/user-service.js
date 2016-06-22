@@ -2,7 +2,7 @@
 
 angular.module('myApp.user-service',[])
 
-.service('UserService', function(){
+.service('UserService', ['$q','$http','$timeout', function($q,$http,$timeout){
 	var _verified = '';
 	var _name = 'Wan';
 	var _role = 'Admin';
@@ -43,10 +43,6 @@ angular.module('myApp.user-service',[])
 		_name = name;
 	}
 
-	// this.setEmail = function(email) {
-	// 	_email = email;
-	// }
-
 	this.setRole = function(role) {
 		_role = role;
 	}
@@ -84,4 +80,4 @@ angular.module('myApp.user-service',[])
 		getUser: this.getUser,
 		logout : this.logout
 	}
-});
+}]);

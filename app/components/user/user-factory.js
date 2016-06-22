@@ -1,6 +1,6 @@
-'use strict';
+// 'use strict';
 
-angular.module('myApp.user.user-factory',[])
+// angular.module('myApp.user-factory',[])
 
 // .factory('UserFactory', function(){
 // 	var _name = '';
@@ -21,21 +21,21 @@ angular.module('myApp.user.user-factory',[])
 // 	return user;
 // });
 
-.factory('UserFactory', function(){
-	var _name = '';
-	var _role = '';
-	var user = {};
+// .factory('UserFactory', ['$rootScope', '$state', 'UserService',
+//   function($rootScope, $state, UserService) {
+//     return {
+//       authorize: function() {
+//         var isAuthenticated = UserService.isAuthenticated();
 
-	return {
-		setUser : function (name, role) {
-			_name = name;
-			_role = role;
-		},
-
-        getUser : function () {
-            user.name = _name;
-            user.role = _role;
-                return user;
-        }
-	};
-});
+//         if ($rootScope.toState.data.roles && $rootScope.toState.data.roles.length > 0 ) {
+//           if (isAuthenticated) {
+//               $state.go('accessdenied');
+//           } else {
+//             $rootScope.returnToState = $rootScope.toState;
+//             $rootScope.returnToStateParams = $rootScope.toStateParams;
+//               $state.go('signin');
+//           }
+//         }
+//       }
+//     };
+// }]);

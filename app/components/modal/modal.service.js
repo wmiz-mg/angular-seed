@@ -25,11 +25,20 @@ angular.module('myApp.loginModal',['ui.bootstrap'])
     loginButton: 'Sign In'
   };
 
+  var _$uibModalInstance
+
   this.showModal = function (customModalDefaults, customModalOptions) {
     if (!customModalDefaults) customModalDefaults = {};
     customModalDefaults.backdrop = 'static';
     return this.show(customModalDefaults, customModalOptions);
   };
+
+  this.close = function(){
+    if(_$uibModalInstance){
+      _$uibModalInstance.dismiss()
+      _$uibModalInstance = null
+    }
+  }
 
   this.show = function (customModalDefaults, customModalOptions) {
     //Create temp objects to work with since we're in a singleton service
@@ -45,7 +54,7 @@ angular.module('myApp.loginModal',['ui.bootstrap'])
     if (!tempModalDefaults.controller) {
       tempModalDefaults.controller = ('modalController', ['$scope','$uibModalInstance','UserService', function ($scope, $uibModalInstance,UserService) {
         $scope.modalOptions = tempModalOptions;
-
+        _$uibModalInstance = $uibModalInstance;
         $scope.modalOptions.ok = function () {
           UserService.login($scope.modalOptions.username,$scope.modalOptions.password)
           if(UserService.isAuthenticated()){
@@ -57,6 +66,7 @@ angular.module('myApp.loginModal',['ui.bootstrap'])
         $scope.modalOptions.cancel = function () {
           $uibModalInstance.dismiss('cancel');
         };
+
       }])
     }
 
