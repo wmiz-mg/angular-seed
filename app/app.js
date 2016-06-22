@@ -1,26 +1,19 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-// angular.module('myApp', [
-//   'ngRoute',
-//   'myApp.view1',
-//   'myApp.view2',
-//   'myApp.user',
-//   'myApp.version'
-// ]).
-angular.module('myApp', ['ui.router'])
+angular.module('myApp', ['ui.router','myApp.loginModal'])
 .config(['$locationProvider','$stateProvider', '$urlRouterProvider', function ($locationProvider ,$stateProvider,   $urlRouterProvider) {
 	$locationProvider.html5Mode({enable:true,requireBase:true}).hashPrefix('!');
 	$urlRouterProvider
     .otherwise('/');
 
   	$stateProvider
-        .state("home", {
+        .state("landing", {
         	url: '/',
         	views: {
 		      'content': {
-		        templateUrl: '/components/body.html',
-		        controller: function($scope){}
+		        templateUrl: '/components/landing.html',
+		        controller: 'LandingCtrl'
 		      }
 		    }
         })
@@ -28,7 +21,7 @@ angular.module('myApp', ['ui.router'])
         	url: '/dashboard',
         	views: {
 		      'content': {
-		        templateUrl: '/components/body2.html',
+		        templateUrl: '/components/body.html',
 		        controller: function($scope){}
 		      }
 		    }
@@ -44,13 +37,9 @@ angular.module('myApp', ['ui.router'])
         })
   }
 ])
-// config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
-//   $locationProvider.html5Mode({enable:true,requireBase:true}).hashPrefix('!');
-//   console.log($locationProvider)
-//   // $routeProvider.otherwise({redirectTo: '/view1'});
-// }]).
 .run(['$location','$rootScope', function($location,$rootScope){
     $rootScope.$on('$locationChangeStart', function(){
       console.log($location.path())
     })
+
 }]);
