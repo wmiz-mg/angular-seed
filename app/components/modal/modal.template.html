@@ -4,7 +4,7 @@
     <form class="form-signin" ng-submit="modalOptions.ok()">
         <span id="reauth-email" class="reauth-email"></span>
         <input type="email" id="inputEmail" ng-model="modalOptions.username" class="form-control" placeholder="Email address" required autofocus>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <input type="password" id="inputPassword"  ng-model="modalOptions.password" class="form-control" placeholder="Password" required>
         <div id="remember" class="checkbox">
             <label>
                 <input type="checkbox" value="remember-me"> Remember me

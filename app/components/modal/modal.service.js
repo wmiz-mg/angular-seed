@@ -43,11 +43,16 @@ angular.module('myApp.loginModal',['ui.bootstrap'])
     angular.extend(tempModalOptions, modalOptions, customModalOptions);
 
     if (!tempModalDefaults.controller) {
-      tempModalDefaults.controller = ('modalController', ['$scope','$uibModalInstance', function ($scope, $uibModalInstance) {
+      tempModalDefaults.controller = ('modalController', ['$scope','$uibModalInstance','UserService', function ($scope, $uibModalInstance,UserService) {
         $scope.modalOptions = tempModalOptions;
 
         $scope.modalOptions.ok = function () {
-          $uibModalInstance.close($scope.modalOptions.username);
+          UserService.login($scope.modalOptions.username,$scope.modalOptions.password)
+          if(UserService.isAuthenticated()){
+            $uibModalInstance.close(true);
+          }else{
+            console.log('not authenticated!');
+          }
         };
         $scope.modalOptions.cancel = function () {
           $uibModalInstance.dismiss('cancel');
