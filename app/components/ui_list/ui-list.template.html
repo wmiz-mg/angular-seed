@@ -1,6 +1,17 @@
-<ul>
-  <li ng-repeat="item in UIListCtrl.persons">
-    <span>{{item.name}}</span>
-    <p>{{item.desc}}</p>
-  </li>
-</ul>
+<div class="row">
+	<div class="col-md-12">
+	<h1 class="page-header">Ui List</h1>
+	<div class="panel panel-default">
+        <div class="panel-heading">
+            UI List Elements
+        </div>
+        <div class="panel-body">
+        	<ul>
+			  <li ng-repeat="item in UIListCtrl.persons">
+			    <span>{{item.name}}</span>
+			    <p>{{item.desc}}</p>
+			  </li>
+			</ul>
+        </div>
+	</div>
+</div>
