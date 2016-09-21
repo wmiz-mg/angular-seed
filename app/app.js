@@ -1,7 +1,7 @@
 'use strict';
 
 // Declare app level module which depends on views, and components
-angular.module('myApp', ['ui.router','myApp.loginModal','myApp.user-service','myApp.view'])
+angular.module('myApp', ['ui.router','myApp.loginModal','myApp.user-service','myApp.view','myApp.myname'])
 .config(['$locationProvider','$stateProvider', '$urlRouterProvider', function ($locationProvider ,$stateProvider,   $urlRouterProvider) {
     $locationProvider.html5Mode({enable:true,requireBase:true}).hashPrefix('!');
     $urlRouterProvider.when('','/welcome');
@@ -16,7 +16,14 @@ angular.module('myApp', ['ui.router','myApp.loginModal','myApp.user-service','my
         },
         views: {
             'content': {
-                templateUrl: '/components/landing.html'
+                templateUrl: '/components/landing.html',
+                controller: function($scope, MyNameService) {
+                    $scope.yourname = MyNameService.getName();
+                    $scope.change = function(name){
+                        MyNameService.setName(name);
+                        $scope.yourname = MyNameService.getName();
+                    }
+                }
             }
         }
     })
